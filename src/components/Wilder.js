@@ -17,8 +17,8 @@ function Wilder({ name, skills }) {
       <ul className="skills">
         {skills.map((skill) => (
           <Skill
-            key={skill.namen}
-            name={skill.name}
+            key={skill.title}
+            title={skill.title}
             voteCount={skill.voteCount}
           />
         ))}
