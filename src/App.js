@@ -10,6 +10,10 @@ import CreateWilderForm from "./components/CreateWilderForm";
 function App() {
   const [loading, setLoading] = useState(true);
   const [wilders, setWilders] = useState([]);
+  const [
+    shouldDisplayCreateWilderForm,
+    setShouldDisplayCreateWilderForm,
+  ] = useState(false);
 
   useEffect(() => {
     const fetchWilders = async () => {
@@ -27,6 +31,10 @@ function App() {
     fetchWilders();
   }, []);
 
+  const addNewWilder = (newWilder) => {
+    setWilders([...wilders, newWilder]);
+  };
+
   return (
     <>
       <header>
@@ -35,7 +43,18 @@ function App() {
         </container>
       </header>
       <main className="container">
-        <CreateWilderForm />
+        {shouldDisplayCreateWilderForm && (
+          <CreateWilderForm onSuccess={addNewWilder} />
+        )}
+        <button
+          onClick={() => {
+            setShouldDisplayCreateWilderForm(!shouldDisplayCreateWilderForm);
+          }}
+        >
+          {`${
+            shouldDisplayCreateWilderForm ? "Hide" : "Show"
+          } create wilder form`}
+        </button>
         <h2>Wilders</h2>
         {loading ? (
           <Loader type="Puff" color="#000" height={50} width={50} />
