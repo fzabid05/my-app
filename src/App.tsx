@@ -3,13 +3,14 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 
 import "./App.css";
-import { container } from "./components/Styled";
+import { Container } from './components/Styled';
 import Wilder from "./components/Wilder";
 import CreateWilderForm from "./components/CreateWilderForm";
+import { TWilder } from './types';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [wilders, setWilders] = useState([]);
+  const [wilders, setWilders] = useState<TWilder[]>([]);
   const [
     shouldDisplayCreateWilderForm,
     setShouldDisplayCreateWilderForm,
@@ -31,16 +32,16 @@ function App() {
     fetchWilders();
   }, []);
 
-  const addNewWilder = (newWilder) => {
+  const addNewWilder = (newWilder: TWilder) => {
     setWilders([...wilders, newWilder]);
   };
 
   return (
     <>
       <header>
-        <container>
+        <Container>
           <h1>Wilders Book</h1>
-        </container>
+        </Container>
       </header>
       <main className="container">
         {shouldDisplayCreateWilderForm && (

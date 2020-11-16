@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import VoteCount from "./VoteCount";
 
-function Skill({ title, voteCount }) {
+type SkillProps = {
+  title: string;
+  voteCount: number;
+}
+
+function Skill({ title, voteCount }: SkillProps): JSX.Element {
   return (
     <li>
       {title}

@@ -2,7 +2,8 @@ import React from "react";
 
 import { VoteCount as StyledVoteCount } from "./Styled";
 
-const VoteCount = ({ count }) => (
+type VoteCountProps = { count: number}
+const VoteCount = ({ count } : VoteCountProps): JSX.Element => (
   <StyledVoteCount count={count}>{count}</StyledVoteCount>
 );
 

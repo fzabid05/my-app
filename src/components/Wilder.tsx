@@ -1,7 +1,14 @@
+import { type } from "os";
 import React from "react";
+import { TSkill } from '../types';
 import Skill from "./Skill";
 
-function Wilder({ name, skills }) {
+type WilderProps = {
+  name: string;
+  skills: TSkill[];
+}
+
+function Wilder({ name, skills }: WilderProps) {
   return (
     <article className="card">
       {/* <img src={blank_profile} alt="Jane Doe Profile" /> */}

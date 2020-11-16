@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -14,7 +13,7 @@ const VoteCount = styled.span`
   display: flex;
   justify-content: center;
   /* Colors */
-  background-color: ${({ count }) =>
+  background-color: ${({ count }: {count: number}) =>
     count >= 10 ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0.3)"};
   color: #fff;
   /* Rounded border */
